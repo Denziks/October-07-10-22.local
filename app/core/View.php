@@ -1,0 +1,20 @@
+<?php
+
+namespace core;
+
+class View
+{
+    const VIEWS_DIR = 'app/sources/views';
+    protected string $template = 'index_template';
+
+    public function __construct()
+    {
+        if (!empty($template)){
+            $this->template = $template;
+        }
+    }
+    public function render(string $page, array $options = []){
+        extract($options);
+        include_once self::VIEWS_DIR . '/templates/' .$this->template . '.php';
+    }
+}
