@@ -9,3 +9,4 @@ spl_autoload_register(function ($className){
     return false;
 });
 \core\Route::init();
+var_dump(core\Route::url('news', 'show'));
