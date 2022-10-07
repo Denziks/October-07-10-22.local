@@ -1,3 +1,10 @@
 <?php
 
-echo 'working';
+spl_autoload_register(function ($className){
+    $classFile = 'app/' .str_replace('\\', DIRECTORY_SEPARATOR, $className);
+    if (file_exists($classFile)){
+        include_once $classFile;
+        return true;
+    }
+    return false;
+});
