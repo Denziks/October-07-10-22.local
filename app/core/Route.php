@@ -24,10 +24,13 @@ class Route
             self::notFound();
         }
         $controller = new $controllerClass();
-        if (!method_exists($controller, $actionName)){
+        self::actionCaller($controller, $actionName);
+    }
+    static private function actionCaller(controllerInterface $controller, string $action){
+        if (!method_exists($controller, $action)){
             self::notFound();
         }
-        $controller -> $actionName();
+        $controller -> $action();
     }
     static public function notFound(){
         http_response_code(404);
