@@ -2,11 +2,17 @@
 
 namespace controllers;
 
-use core\controllerInterface;
+use core\AbstractionController;
+use core\View;
 
-class Index implements  controllerInterface
+class Index extends AbstractionController
 {
-    public function index(){
+    protected $view;
+    public function __construct(){
+        $this->view=new View('admin');
+    }
 
+    public function index(){
+        $this->view->render('index_index');
     }
 }
