@@ -1,5 +1,7 @@
 <?php
 
+include_once 'app/config.php';
+
 spl_autoload_register(function ($className){
     $classFile = 'app/' .str_replace('\\', DIRECTORY_SEPARATOR, $className) .'.php';
     if (file_exists($classFile)){
@@ -9,4 +11,3 @@ spl_autoload_register(function ($className){
     return false;
 });
 \core\Route::init();
-var_dump(core\Route::url('news', 'show'));
