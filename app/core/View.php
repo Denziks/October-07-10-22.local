@@ -7,10 +7,10 @@ class View
     const VIEWS_DIR = 'app/sources/views';
     protected string $template = 'index_template';
 
-    public function __construct()
+    public function __construct(string $template = null)
     {
         if (!empty($template)){
-            $this->template = $template;
+            $this->template = $template .'_template';
         }
     }
     public function render(string $page, array $options = []){
